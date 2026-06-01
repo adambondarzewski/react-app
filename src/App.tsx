@@ -7,17 +7,19 @@ function App() {
 
   let items = ["New York", "San Francisco", "Tokyo", "London"];
 
+  const [displayAlert, setAlertVisibility] = useState(false)
+
   const handleSelectItem = (item: string) => console.log(item);
-  const handleAlertClose = () => setDisplayAlert(false)
-  const [displayAlert, setDisplayAlert] = useState(false)
+  const handleAlertClose = () => setAlertVisibility(false)
+
 
   const handleButtonClicked = (item: number) => {
-    setDisplayAlert(true)
+    setAlertVisibility(true)
     console.log("Button state: ", item)
   }
 
   let alert = displayAlert &&
-    <Alert handleCloseClick={handleAlertClose}><h1>Big header </h1>
+    <Alert onClose={handleAlertClose}><h1>Big header </h1>
       <p> Some content</p>
     </Alert>
 
